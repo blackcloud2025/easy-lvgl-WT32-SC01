@@ -1,7 +1,7 @@
 //wt32sc01 EASY!! por Erick barajas 05-05-2024
 //my YT chanel @saulh.Barajas2025 suscribe!!
 
-#include <lvgl.h>
+#include <lvgl.h>// 8.3.11 recomended. (now exist lvgl 9 but is not compatible with squareline anymore).
 #include "ui.h"
 #include <LovyanGFX.hpp> //by lovyan03
 #include <ESP32Time.h>  //by fbiego library
