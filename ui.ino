@@ -12,7 +12,7 @@
 class LGFX : public lgfx::LGFX_Device
 {
 
-  lgfx::Panel_ST7796 _panel_instance;
+  lgfx::Panel_ST7796 _panel_instance; //lcd screen 
 
   lgfx::Bus_SPI _bus_instance;
 
@@ -116,8 +116,14 @@ public:
 LGFX tft;
 
 /* Change to your screen resolution */
-static const uint32_t screenWidth = 320;
-static const uint32_t screenHeight = 480;
+
+/* portrait mode */
+//static const uint32_t screenWidth = 320;
+//static const uint32_t screenHeight = 480;
+
+/* landscape mode */
+static const uint32_t screenWidth = 480;
+static const uint32_t screenHeight = 320;
 
 static lv_disp_draw_buf_t draw_buf;
 static lv_disp_drv_t disp_drv;
@@ -137,8 +143,8 @@ void my_disp_flush(lv_disp_drv_t *disp, const lv_area_t *area, lv_color_t *color
   {
     tft.endWrite();
   }
-
-  tft.pushImageDMA(area->x1, area->y1, area->x2 - area->x1 + 1, area->y2 - area->y1 + 1, (lgfx::rgb565_t *)&color_p->full);
+  //for right color on WT32-sc01 use (lgfx::rgb565_t *)
+  tft.pushImageDMA(area->x1, area->y1, area->x2 - area->x1 + 1, area->y2 - area->y1 + 1, (lgfx::rgb565_t *)&color_p->full); 
 
   lv_disp_flush_ready(disp); /* tell lvgl that flushing is done */
 }
